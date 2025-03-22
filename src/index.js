@@ -13,6 +13,7 @@ function App() {
   );
 }
 
+// Header Component
 function Header() {
   return (
     <header className="header">
@@ -21,8 +22,11 @@ function Header() {
   );
 }
 
+// Menu Component
 function Menu() {
+  // Get the pizzas data
   const pizzas = pizzaData;
+  // Get the pizza stock
   const pizzaStock = pizzas.length;
   console.log(pizzaStock);
   return (
@@ -42,6 +46,7 @@ function Menu() {
   );
 }
 function Pizza({ pizzaObj }) {
+  // Check if the pizza is sold out
   return (
     <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
       <img src={pizzaObj.photoName} alt={pizzaObj.name} />
@@ -54,7 +59,9 @@ function Pizza({ pizzaObj }) {
   );
 }
 
+// Footer Component
 function Footer() {
+  // Get the current hour
   const hour = new Date().getHours();
   const openHour = 10;
   const closeHour = 24;
@@ -62,6 +69,7 @@ function Footer() {
 
   return (
     <footer className="footer">
+      {/* Check if the restaurant is open */}
       {isOpen && (
         <p>
           {new Date().toLocaleTimeString()} We are currently{" "}
